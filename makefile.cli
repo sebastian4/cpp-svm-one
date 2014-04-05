@@ -1,0 +1,23 @@
+SRC_DIR   = src
+BUILD_DIR = build
+
+all: mkb hello
+
+mkb:
+	mkdir $(BUILD_DIR)
+
+hello: main.o factorial.o hello.o
+	g++ $(BUILD_DIR)/main.o $(BUILD_DIR)/factorial.o $(BUILD_DIR)/hello.o -o $(BUILD_DIR)/hello
+
+main.o: $(SRC_DIR)/main.cpp
+	g++ -c $(SRC_DIR)/main.cpp  -o $(BUILD_DIR)/main.o
+
+factorial.o: $(SRC_DIR)/factorial.cpp
+	g++ -c $(SRC_DIR)/factorial.cpp -o $(BUILD_DIR)/factorial.o
+
+hello.o: $(SRC_DIR)/hello.cpp
+	g++ -c $(SRC_DIR)/hello.cpp -o $(BUILD_DIR)/hello.o
+
+clean:
+	rm -rf $(BUILD_DIR)/*o $(BUILD_DIR)/hello
+	rm -rf $(BUILD_DIR)
