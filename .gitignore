@@ -1,1 +1,4 @@
 Debug/
+obj/
+bin/
+cpp-svm-one.layout
