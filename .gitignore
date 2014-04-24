@@ -2,3 +2,5 @@ Debug/
 obj/
 bin/
 cpp-svm-one.layout
+/build/
+nbproject/private
